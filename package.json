@@ -1,0 +1,9 @@
+{
+  "name": "rollup-smart-node-copy-plugin",
+  "version": "1.0.0",
+  "description": "Copy Node.js modules that Rollup can't bundle",
+  "main": "index.js",
+  "repository": "https://github.com/justin2taylor/rollup-plugin-node-copy",
+  "author": "Justin Taylor",
+  "license": "MIT"
+}
