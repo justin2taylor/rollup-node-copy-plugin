@@ -8,7 +8,7 @@ const unique = (array) => {
 const nodeSolve = ({ src, pkg, keepDevDependencies }) => {
   let allDependencies = [];
   const fullPath = path.join(src, "node_modules", pkg);
-  console.log(`getting pkgs for ${fullPath}`);
+  // console.log(`getting pkgs for ${fullPath}`);
   const pkgJson = path.join(fullPath, "package.json");
   if (fs.existsSync(pkgJson)) {
     const raw = fs.readFileSync(pkgJson, { encoding: "utf-8" });
@@ -35,12 +35,13 @@ const rollupNodeCopyPlugin = ({ packages, keepDevDependencies, src, dest }) => {
   return {
     name: "copy-node-modules",
     buildEnd: async () => {
-      console.log(`Smart Copy ${packages.length} Node Modules`);
       const allPkg = packages.flatMap((pkg) =>
         nodeSolve({ src, pkg, keepDevDependencies })
       );
       const uniqePkg = unique(allPkg);
-      console.log(uniqePkg.length);
+      console.log(
+        `Copying ${packages.length} Node Module(s) (${uniqePkg.length} Dependencies)`
+      );
       fs.ensureDirSync(path.join(dest, "node_modules"));
       uniqePkg.map((pkg) => {
         const fullSrcPath = path.join(src, "node_modules", pkg);
@@ -51,4 +52,4 @@ const rollupNodeCopyPlugin = ({ packages, keepDevDependencies, src, dest }) => {
   };
 };
 
-export default rollupNodeCopyPlugin;
+exports.default = rollupNodeCopyPlugin;

@@ -1,4 +1,4 @@
-# Rollup Smart Node Copy Plugin
+# Rollup Plugin Node Copy
 
 For problem Node.js modules that won't bundle with Rollup, a brute force copy method is required.
 Instead of manually entering all the dependenices needed, simply input each of the trouble modules
@@ -6,11 +6,13 @@ you need, and that module with it's dependencies will be copied into your target
 
 # Usage
 
-`yarn add rollup-node-copy-plugin -D`
+`yarn add rollup-plugin-node-copy -D`
 
 ```
-import nodeCopy from 'rollup-node-copy-plugin';
+import nodeCopy from 'rollup-plugin-node-copy';
+
 [...]
+
 plugins: [
     nodeCopy({
         packages: ['jimp'],
