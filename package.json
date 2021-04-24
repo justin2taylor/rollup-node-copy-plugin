@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Copy Node.js modules that Rollup can't bundle",
   "main": "index.js",
-  "homepage": "https://github.com/justin2taylor/rollup-plugin-node-copy",
+  "homepage": "https://github.com/justintaylor-dev/rollup-plugin-node-copy",
   "repository": {
     "type": "git",
-    "url": "https://github.com/justin2taylor/rollup-plugin-node-copy"
+    "url": "https://github.com/justintaylor-dev/rollup-plugin-node-copy"
   },
   "keywords": [
     "rollup",
@@ -19,6 +19,6 @@
   "dependencies": {
     "fs-extra": "^9.1.0"
   },
-  "author": "Justin Taylor <https://github.com/justin2taylor>",
+  "author": "Justin Taylor <justin@justintaylor.tv>",
   "license": "MIT"
 }
