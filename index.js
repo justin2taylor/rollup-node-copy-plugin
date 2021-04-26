@@ -6,7 +6,7 @@ const unique = (array) => {
 };
 
 const nodeSolve = ({ src, pkg, keepDevDependencies }) => {
-  let allDependencies = [];
+  let allDependencies = [pkg];
   const fullPath = path.join(src, "node_modules", pkg);
   // console.log(`getting pkgs for ${fullPath}`);
   const pkgJson = path.join(fullPath, "package.json");
