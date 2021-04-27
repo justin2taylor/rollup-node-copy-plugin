@@ -31,12 +31,12 @@ const nodeSolve = ({ src, pkg, keepDevDependencies }) => {
   return allDependencies || [];
 };
 
-const rollupNodeCopyPlugin = ({ packages, keepDevDependencies, src, dest }) => {
+const rollupNodeCopyPlugin = ({ packages, src, dest }) => {
   return {
     name: "copy-node-modules",
     buildEnd: async () => {
       const allPkg = packages.flatMap((pkg) =>
-        nodeSolve({ src, pkg, keepDevDependencies })
+        nodeSolve({ src, pkg, keepDevDependencies: false })
       );
       const uniqePkg = unique(allPkg);
       console.log(

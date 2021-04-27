@@ -17,7 +17,6 @@ plugins: [
     nodeCopy({
         packages: ['jimp'],
         src: './',
-        keepDevDependencies: false,
         dest: 'public/web',
     }),
 ]
