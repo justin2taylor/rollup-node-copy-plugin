@@ -50,7 +50,7 @@ const rollupNodeCopyPlugin = ({ packages, src, dest, symlink }) => {
         if (!symlink) {
           fs.copySync(fullSrcPath, fullDstPath);
         } else {
-          fs.symlinkSync(fullSrcPath, fullDstPath, "dir");
+          fs.ensureSymlink(fullSrcPath, fullDstPath, "dir");
         }
       });
     },
