@@ -16,6 +16,6 @@
 
 - Added symlink option
 
-## 1.0.4 - May 27, 2021
+## 1.0.4 - May 28, 2021
 
 - Bug Fix: Resolve existing symlinks
