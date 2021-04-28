@@ -18,6 +18,18 @@ plugins: [
         packages: ['jimp'],
         src: './',
         dest: 'public/web',
+        symlink: false
     }),
 ]
 ```
+
+## Parameters
+
+- **packages** - (array[string])
+  - array of main package names
+- **src** - (string)
+  - source folder containing the main node_modules folder
+- **dest** - (string)
+  - destination folder to generate the destiation node_modules folder
+- **symlink** - (boolean)
+  - option to make a symlink to src node_modules folders instead of copying (best for dev)

@@ -10,4 +10,8 @@
 
 ## 1.0.2 - May 27, 2021
 
-- Bug Fix: Include root package in copy
+- Removed dev dependency option
+
+## 1.0.3 - May 27, 2021
+
+- Added symlink option

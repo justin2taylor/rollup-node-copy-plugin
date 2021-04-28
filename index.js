@@ -31,7 +31,7 @@ const nodeSolve = ({ src, pkg, keepDevDependencies }) => {
   return allDependencies || [];
 };
 
-const rollupNodeCopyPlugin = ({ packages, src, dest }) => {
+const rollupNodeCopyPlugin = ({ packages, src, dest, symlink }) => {
   return {
     name: "copy-node-modules",
     buildEnd: async () => {
@@ -44,9 +44,14 @@ const rollupNodeCopyPlugin = ({ packages, src, dest }) => {
       );
       fs.ensureDirSync(path.join(dest, "node_modules"));
       uniqePkg.map((pkg) => {
-        const fullSrcPath = path.join(src, "node_modules", pkg);
-        const fullDstPath = path.join(dest, "node_modules", pkg);
-        fs.copySync(fullSrcPath, fullDstPath);
+        const fullSrcPath = path.join(process.cwd(), src, "node_modules", pkg);
+        const fullDstPath = path.join(process.cwd(), dest, "node_modules", pkg);
+        fs.ensureDirSync(path.dirname(fullDstPath));
+        if (!symlink) {
+          fs.copySync(fullSrcPath, fullDstPath);
+        } else {
+          fs.symlinkSync(fullSrcPath, fullDstPath, "dir");
+        }
       });
     },
   };
